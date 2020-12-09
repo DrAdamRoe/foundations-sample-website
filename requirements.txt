@@ -5,3 +5,16 @@ Jinja2==2.11.2
 MarkupSafe==1.1.1
 uWSGI==2.0.19.1
 Werkzeug==1.0.1
+autopep8==1.5.4
+click==7.1.2
+flake8==3.8.4
+Flask==1.1.2
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+mccabe==0.6.1
+pycodestyle==2.6.0
+pyflakes==2.2.0
+toml==0.10.2
+uWSGI==2.0.19.1
+Werkzeug==1.0.1
