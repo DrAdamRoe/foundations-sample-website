@@ -37,3 +37,6 @@ disable https for first attempt
 
 > caddy reverse-proxy --from 127.0.0.1:80 --to 127.0.0.1:3031
 
+## Lint locally 
+> flake8 --exclude __pycache__,venv
+(or else it takes forever)
