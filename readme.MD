@@ -52,6 +52,7 @@ based roughly on https://github.com/google-github-actions/deploy-appengine
 1. create app engine application https://console.cloud.google.com/appengine/create (europe-west-3 is FRA)
 1. create service account https://cloud.google.com/iam/docs/creating-managing-service-accounts
 
+![Permissions](./documentation/permissions.png?raw=true)
 
 1. enable api https://console.developers.google.com/apis/library/appengine.googleapis.com 
 
