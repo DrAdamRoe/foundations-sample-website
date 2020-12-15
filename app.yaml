@@ -1,4 +1,5 @@
 #based on https://cloud.google.com/appengine/docs/standard/python3/config/appref 
+# this is helpful too https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/appengine/standard_python3/hello_world 
 
 runtime: python38 
 
