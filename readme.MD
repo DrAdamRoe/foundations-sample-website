@@ -49,7 +49,9 @@ based roughly on https://github.com/google-github-actions/deploy-appengine
 
 1. Get cloud credits [LINK]
 1. create project https://cloud.google.com/resource-manager/docs/creating-managing-projects
+1. create app engine application https://console.cloud.google.com/appengine/create (europe-west-3 is FRA)
 1. create service account https://cloud.google.com/iam/docs/creating-managing-service-accounts
+
 
 1. enable api https://console.developers.google.com/apis/library/appengine.googleapis.com 
 
