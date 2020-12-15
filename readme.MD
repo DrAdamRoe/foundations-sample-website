@@ -62,6 +62,9 @@ https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapi
 1. allow cloud build to deploy to app engine 
 https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-appengine#grant-permissions
 
+
+1. Give service account permission to act as project accountt (???) --> https://github.com/DrAdamRoe/foundations-sample-website-/runs/1558999799?check_suite_focus=true
+
 1. get service account private key 
 https://cloud.google.com/iam/docs/creating-managing-service-account-keys
 
