@@ -54,7 +54,13 @@ based roughly on https://github.com/google-github-actions/deploy-appengine
 
 ![Permissions](./documentation/permissions.png?raw=true)
 
-1. enable api https://console.developers.google.com/apis/library/appengine.googleapis.com 
+1. enable app engine api https://console.developers.google.com/apis/library/appengine.googleapis.com 
+
+1. enable cloud buld api 
+https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com
+
+1. allow cloud build to deploy to app engine 
+https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-appengine#grant-permissions
 
 1. get service account private key 
 https://cloud.google.com/iam/docs/creating-managing-service-account-keys
