@@ -40,3 +40,20 @@ disable https for first attempt
 ## Lint locally 
 > flake8 --exclude __pycache__,venv
 (or else it takes forever)
+
+## get CD running on GCP/GAE 
+
+based roughly on https://github.com/google-github-actions/deploy-appengine 
+
+#### On GCP 
+
+1. Get cloud credits [LINK]
+1. create project https://cloud.google.com/resource-manager/docs/creating-managing-projects
+1. create service account https://cloud.google.com/iam/docs/creating-managing-service-accounts
+1. get service account private key 
+https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+
+--> you should now have a .JSON file on your own computer
+
+On GitHub: 
+1. Add secret https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
