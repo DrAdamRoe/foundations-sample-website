@@ -15,27 +15,27 @@ pip install uwsgi || requirements.txt
 ```
 
 #### Hello, World!
-> uwsgi --http :8080 --wsgi-file helloworld.py
+> uwsgi --http :8080 --wsgi-file hello_world/hello_world.py
 
 Full-on version 
 
-> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file helloworld.py --master --processes 4 --threads 2 --stats 127.0.0.1:8181
+> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file hello_world/hello_world.py --master --processes 4 --threads 2 --stats 127.0.0.1:8181
  
 
 ### Flask version 
 > pip install flask 
 
-> uwsgi --http-socket 127.0.0.1:3031 --wsgi-file flasky.py --callable app -H venv/
+> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file sample_website/sample_website.py --callable app -H venv/
 
 or to go full-on 
 
-> uwsgi --http-socket 127.0.0.1:3031 --wsgi-file flasky.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:9191 -H venv/
+> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file sample_website/sample_website.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:8181 -H venv/
 
 
 ## Run with caddy 
-disable https for first attempt
+# disable https for first attempt
 
-> caddy reverse-proxy --from 127.0.0.1:80 --to 127.0.0.1:3031
+# > caddy reverse-proxy --from 127.0.0.1:80 --to 127.0.0.1:8080
 
 ## Lint locally 
 > flake8 --exclude __pycache__,venv
