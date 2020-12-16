@@ -15,11 +15,11 @@ pip install uwsgi || requirements.txt
 ```
 
 #### Hello, World!
-> uwsgi --http :9090 --wsgi-file helloworld.py
+> uwsgi --http :8080 --wsgi-file helloworld.py
 
 Full-on version 
 
-> uwsgi --http-socket 127.0.0.1:3031 --wsgi-file helloworld.py --master --processes 4 --threads 2 --stats 127.0.0.1:9191
+> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file helloworld.py --master --processes 4 --threads 2 --stats 127.0.0.1:8181
  
 
 ### Flask version 
