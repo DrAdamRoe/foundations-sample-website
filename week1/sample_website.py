@@ -3,12 +3,9 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_flask():
-    return 'Hello, Flask2!'
+def hello_world():
+    return '<h1>Hello, Week 1!</h1>'
 
-@app.route('/hallo')
-def hallo():
-    return 'Test Route2'
 
 if __name__ == "__main__":
     app.run(host="localhost", port=8080, debug=True)
