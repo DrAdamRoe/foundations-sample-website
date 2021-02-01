@@ -38,7 +38,7 @@ or to go full-on
 # > caddy reverse-proxy --from 127.0.0.1:80 --to 127.0.0.1:8080
 
 ## Lint locally 
-> flake8 --exclude __pycache__,venv
+> `flake8 --exclude __pycache__,venv`
 (or else it takes forever)
 
 ## get CD running on GCP/GAE 
