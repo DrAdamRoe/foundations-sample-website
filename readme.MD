@@ -1,8 +1,10 @@
-### How I did this 
+## Foundations of Software Engineering
+This repository provides a starting point for students participating in the Foundations course at CODE University. 
 
-based on [this](https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html)
-
-
+To use this repository, you need to have: 
+- basic working knowledge of Python, git, and the terminal 
+- a terminal running on your own computer which gives access to a linux-like command line 
+- Python 3.8 Installed and running
 
 #### Setup Instructions
 ```
@@ -13,6 +15,9 @@ virtualenv -p python3.8 venv
 source venv/bin/activate
 pip install uwsgi || requirements.txt
 ```
+
+based on [this](https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html)
+
 
 #### Hello, World!
 > uwsgi --http :8080 --wsgi-file hello_world/hello_world.py
