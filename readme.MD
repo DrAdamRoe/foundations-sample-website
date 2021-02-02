@@ -26,27 +26,35 @@ Make sure that you are using a version of Python which is relatively new, at lea
 
 Keep in mind that many computers have multiple versions of Python installed on them. It might be that you need to type `python`, `Python`, `python3`,`python3.8`, or something else, to get a version that you have already installed. Or you may need install it. 
 
-```
-mkdir simpleserver 
-cd simpleserver/ 
-git init . || git clone <REPO>
-virtualenv -p python3.8 venv
+### Create a fresh, new, virtual environment
+@TODO add instructions from previous years. 
+
+### Run the "Hello, World!" website on your own computer
+
 source venv/bin/activate
 pip install uwsgi || requirements.txt
-```
+
+
+At this point, you should finally be able to run the "hello, world!" website locally on your own computer. The command `uwsgi` will run a server. Try this command to start your server (e.g. run your website):
+
+> uwsgi --http :8080 --wsgi-file hello_world/hello_world.py
 
 based on [this](https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html)
 
 
-#### Hello, World!
-> uwsgi --http :8080 --wsgi-file hello_world/hello_world.py
+This will run a super simple website, only accessible on your own computer. To see it, navigate to http://localhost:8080 in your browser. It should look like this: 
 
-Full-on version 
+@TODO add screenshot 
 
-> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file hello_world/hello_world.py --master --processes 4 --threads 2 --stats 127.0.0.1:8181
- 
+## Run the sample website on your own computer, using Flask. 
 
-### Flask version 
+Building on the previous example, we will use a framework for building websites called Flask. We will go into more details on what it is in class, and why it is useful. 
+
+@TODO keep cleaning up! 
+
+
+
+
 > pip install flask 
 
 > uwsgi --http-socket 127.0.0.1:8080 --wsgi-file sample_website/sample_website.py --callable app -H venv/
