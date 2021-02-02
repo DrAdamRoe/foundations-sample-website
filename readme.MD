@@ -5,8 +5,23 @@ To use this repository, you need to have:
 - basic working knowledge of Python, git, and the terminal 
 - a terminal running on your own computer which gives access to a linux-like command line 
 - Python 3.8 Installed and running
+- An account on GitHub
 
-#### Setup Instructions
+### Local Setup Instructions
+Students of the class should begin by forking this repository so that it is in their own GitHub repository. Forking is like making a copy, but fancier. 
+
+Before continuing, make sure that this repository has _your_ username in the URL, not Adam's or anyone else's. 
+
+
+On your own computer: 
+- Create a new folder, with a name like "foundations". That's up to you. e.g. `mkdir foundations`
+- change directory into that new folder, e.g. `cd foundations`
+- clone (like downloading, but fancier) _your_ forked repository from GitHub onto your own computer, e.g. `git clone https://github.com/<Best_Username_EVer>/foundations-sample-website-.git`
+
+Now you should have your own fork (copy) of the foundations repository (folder) cloned (downloaded) onto your own computer. 
+
+###
+
 ```
 mkdir simpleserver 
 cd simpleserver/ 
