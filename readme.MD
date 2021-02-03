@@ -44,30 +44,20 @@ based on [this](https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html)
 
 This will run a super simple website, only accessible on your own computer. To see it, navigate to http://localhost:8080 in your browser. It should look like this: 
 
-@TODO add screenshot 
+![Your local Hello, World! website](./documentation/localhost_helloworld.png?raw=true)
 
 ## Run the sample website on your own computer, using Flask. 
 
 Building on the previous example, we will use a framework for building websites called Flask. We will go into more details on what it is in class, and why it is useful. 
 
-@TODO keep cleaning up! 
+Running a website using Flask using the same basic command, `uwsgi`, but requires a few more arguments: 
 
+> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file sample_website/website.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:8181 -H venv/
 
+You should now be able to go http://localhost:8080 in your browser and see the Hello, Flask! Website 
 
+![Your local Hello, Flask! website](./documentation/localhost_helloflask.png?raw=true)
 
-> pip install flask 
-
-> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file sample_website/sample_website.py --callable app -H venv/
-
-or to go full-on 
-
-> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file sample_website/sample_website.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:8181 -H venv/
-
-
-## Run with caddy 
-# disable https for first attempt
-
-# > caddy reverse-proxy --from 127.0.0.1:80 --to 127.0.0.1:8080
 
 ## Lint locally 
 > `flake8 --exclude __pycache__,venv`
