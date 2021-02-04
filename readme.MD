@@ -154,8 +154,29 @@ Once you have updated the test itself, you should see something like this:
 Now that we are able to update our code, lint it, test it, it is time to push (upload) that code to GitHub
 
 ### Push (upload) Your Changes to GitHub
+By now, you have made a number of changes to files on your computer. You have definitely changed the code in the file `sample_website/website.py` to change the greeting, and the code in the file `sample_website/tests/test_sample_website.py` so that the test is updated to match, as well. Now it is time to push (upload) those changes to GitHub. There is a bit of confusion about the what and why here, so let's take a second to understand what is going on before hitting some random keys. 
 
+git is an extremely powerful open-source tool for collaboration, written in the early 2000's to aid in the process of developing Linux itself. It is a type of source code management (SCM) tool and version control system (VCS). Git has become the go-to open source tool of its kind, widely used in software development. It is not the first, the only, or the last of its kind - but the principles it embodies are here to stay, and it is the standard. You do not need to become an expert in git to use it, but you should become comfortable with it as a tool. 
 
+In order to use a tool like git to its full capabilities, you need something called a git server - and we will use GitHub for this. For now, you can think of this as the part that lives in the cloud. To understand what this is, let's think about writing normal text, not code. When you write something, like email, a note, or a doc, you probably are writing on an app on your own computer, but you are probably also syncing or backing it up to the cloud, using a service like Google Drive, Apple iCloud, Office 365, or Dropbox. This allows you to access the document you are working on on multiple devices, like your laptop and your phone, as well as share them via link with other people. For code, it's the same thing: you can write your code locally in VSCode (your code editor) and save it to your computer, but then it is not backed up, accessible on other computers to you, or shareable. This is where a git server like GitHub comes in: it is the equivalent of Drive, iCloud, or Dropbox. You can "push" your code from your own computer to GitHub, akin to uploading a file to a cloud storage service, making it accessible, and backing it up. 
+
+You may ask, then, why not just use one of the other services for your code instead of GitHub? Well, you can. It will work, but it won't be a good experience. These services are built for specific types of files, for instance, images and documents. In the same way, GitHub is built for code. You can do more with it, and do it better. 
+
+### Enough Talking, how do I push?
+
+There are three commands needed
+
+> git add <filename>
+> git commit -m "message"
+> git push 
+
+`git add` tells git "I want to save the changes I've made to this specific file". You can add multiple files, bundling the changes together. Think about the example where we changed one piece of code in two file: you want to those changes to stick together, even though they are in separate files. 
+`git commit` tells git "I'm done with the bundle". It adds a message, too, which is a note for you and your collaborators saying what the bundle is. 
+`git push` tells git "I'm ready. Upload to GitHub!"
+
+In this case, you might do something like this: 
+
+@TODO screenshot
 
 ## get CD running on GCP/GAE 
 
