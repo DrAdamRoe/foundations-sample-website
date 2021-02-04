@@ -24,6 +24,12 @@ Now you should have your own fork (copy) of the foundations repository (folder) 
 
 Make sure that you are using a version of Python which is relatively new, at least version 3.8. You can check this by using the command `python --version`at the command line. You can also a very fancy script by typing `python check_setup/version_check.py`. 
 
+You should see something like this: 
+
+![Your version of Python will work with this code!](./documentation/version_check.png?raw=true)
+
+If you see a longer message (`### oh no! ###`), you are using a version of Python which is too old. You will need to use Python 3.8 or newer. Like with all other software, you have to update the language itself from time to time. 
+
 Keep in mind that many computers have multiple versions of Python installed on them. It might be that you need to type `python`, `Python`, `python3`,`python3.8`, or something else, to get a version that you have already installed. Or you may need install it. 
 
 ### Create a fresh, new, virtual environment
