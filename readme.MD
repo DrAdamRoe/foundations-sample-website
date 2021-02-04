@@ -176,9 +176,9 @@ There are three commands needed
 
 In addition, the command `git status` can be very helpful to tell you about where you are in this process. 
 
-In this case, you might do something like this: 
+![git push](./documentation/git_push.png?raw=true)
 
-@TODO screenshot
+Once you have done this, you have successfully edited files on your own computer and updated them on GitHub! That is no small feat, congratulate yourself with something nice. 
 
 ## get CD running on GCP/GAE 
 
