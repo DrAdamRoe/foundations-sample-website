@@ -174,6 +174,8 @@ There are three commands needed
 `git commit` tells git "I'm done with the bundle". It adds a message, too, which is a note for you and your collaborators saying what the bundle is. 
 `git push` tells git "I'm ready. Upload to GitHub!"
 
+In addition, the command `git status` can be very helpful to tell you about where you are in this process. 
+
 In this case, you might do something like this: 
 
 @TODO screenshot
