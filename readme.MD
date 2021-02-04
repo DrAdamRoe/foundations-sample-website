@@ -2,8 +2,9 @@
 This repository provides a starting point for students participating in the Foundations course at CODE University. 
 
 ## Table Of Contents
-1. [Get Started](#get-started)
-1. [Hello, Flask!](#hello-flask!)
+1. [Get Started: Run A Website on Your Own Computer](#get-started)
+1. [Hello, Flask!: Edit a Website Running Flask and Push it to GitHub](#hello-flask!)
+1. [Deploying Your Website, automatically. ](#deploying-your-website)
 
 ## Get Started
 This section will help you make the code yours and get it onto your computer, and check that you are ready to go. By the end of this section, you will be running the "Hello, World!" website on your own comptuer.
@@ -180,7 +181,7 @@ In addition, the command `git status` can be very helpful to tell you about wher
 
 Once you have done this, you have successfully edited files on your own computer and updated them on GitHub! That is no small feat, congratulate yourself with something nice. 
 
-## get CD running on GCP/GAE 
+## Deploying Your Website
 
 based roughly on https://github.com/google-github-actions/deploy-appengine 
 
