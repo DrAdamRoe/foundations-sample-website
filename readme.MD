@@ -1,5 +1,14 @@
-## Foundations of Software Engineering
+# Foundations of Software Engineering
 This repository provides a starting point for students participating in the Foundations course at CODE University. 
+
+## Table Of Contents
+1. [Get Started](#get-started)
+1. [Hello, Flask!](#hello-flask!)
+
+## Get Started
+This section will help you make the code yours and get it onto your computer, and check that you are ready to go. By the end of this section, you will be running the "Hello, World!" website on your own comptuer.
+
+### Before You Start...
 
 To use this repository, you need to have: 
 - basic working knowledge of Python, git, and the terminal 
@@ -7,12 +16,12 @@ To use this repository, you need to have:
 - Python 3.8 Installed and running
 - An account on GitHub
 
-### Local Setup Instructions
-Students of the class should begin by forking this repository so that it is in their own GitHub repository. Forking is like making a copy, but fancier. 
+### Fork (copy) this Repository (code) to your GitHub account
+ Students of the class should begin by forking this repository so that it is in their own GitHub repository. Forking is like making a copy, but fancier. [Here are GitHub's instructions](https://guides.github.com/activities/forking/). 
 
 Before continuing, make sure that this repository has _your_ username in the URL, not Adam's or anyone else's. 
 
-
+### Clone (download) your repository (code) to your computer
 On your own computer: 
 - Create a new folder, with a name like "foundations". That's up to you. e.g. `mkdir foundations`
 - change directory into that new folder, e.g. `cd foundations`
@@ -20,7 +29,12 @@ On your own computer:
 
 Now you should have your own fork (copy) of the foundations repository (folder) cloned (downloaded) onto your own computer. 
 
-#### Before you continue: check your version of python 
+### Create a fresh, new, virtual environment
+@TODO add instructions from previous years. 
+
+`source venv/bin/activate`
+
+### Before you continue: check your version of python 
 
 Make sure that you are using a version of Python which is relatively new, at least version 3.8. You can check this by using the command `python --version`at the command line. You can also a very fancy script by typing `python check_setup/version_check.py`. 
 
@@ -32,11 +46,6 @@ If you see a longer message (`### oh no! ###`), you are using a version of Pytho
 
 Keep in mind that many computers have multiple versions of Python installed on them. It might be that you need to type `python`, `Python`, `python3`,`python3.8`, or something else, to get a version that you have already installed. Or you may need install it. 
 
-### Create a fresh, new, virtual environment
-@TODO add instructions from previous years. 
-
-source venv/bin/activate
-
 ### Run the "Hello, World!" website on your own computer
 
 At this point, you should finally be able to run the "hello, world!" website locally on your own computer. The command `uwsgi` will run a server. Try this command to start your server (e.g. run your website):
@@ -44,7 +53,6 @@ At this point, you should finally be able to run the "hello, world!" website loc
 > uwsgi --http :8080 --wsgi-file hello_world/hello_world.py
 
 If you see something like `uwsgi: command not found`, something is wrong with your _environment_ (the way the computer is setup), not the code itself. Make sure you have activated a virtual environment, are running python3.8 or newer, and have installed the libraries listed in requirements.txt, as described above. 
-
 
 This will run a super simple website, only accessible on your own computer. To see it, navigate to http://localhost:8080 in your browser. It should look like this: 
 
@@ -54,7 +62,10 @@ If you haven't done so yet, this is a good time to open the file you are running
 
 These instructions are based on [the uwsgi documentation](https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html). To learn more or troubleshoot, that is a good place to start. 
 
-## Run the sample website on your own computer, using Flask. 
+## Hello, Flask!
+In this section, you will learn how to edit and run a website using Flask locally using best practices, including testing, linting, and then pushing (uploading) to GitHub in the end. 
+
+### Run the sample website using Flask, locally.
 
 Building on the previous example, we will use a framework for building websites called Flask. We will go into more details on what it is in class, and why it is useful. 
 
@@ -68,7 +79,7 @@ You should now be able to go http://localhost:8080 in your browser and see the H
 
 This command starts a server (`uwsgi`), specifies which IP address and port to run on (`http-socket`), chooses which file to run off of (`wsgi-file`), specifies what the application itself is called (`app`, defined in the file you are running), specifies a second automatic site for statistics (`stats`), tells your computer what resources (think processing) this application requests in order to run well (`processes` and `threads`), and lastly, selects a version of Python (`-H`). Whew. For now, you don't need to think too much about all of this. We will work with the file and the socket a bit in the coming weeks in particular.
 
-## Congratulations! You are Running Your First Website! 
+### Congratulations! You are Running Your First Website! 
 
 Alright, you've gotten the sample website running on your own computer with Flask. That is no small feat. You should be proud of yourself. Now we're going to take it up a notch. 
 
@@ -81,7 +92,7 @@ Open `sample_website/website.py`, and greet in a different way. I've edited mine
 
 Alright! We are getting close to running by hand, on our computers, the things we did in the first week on Glitch. This is a good moment to open the browser inspector tools and play around with the HTML and CSS like we did on other live websites, too. 
 
-## Code Quality: Linting 
+### Code Quality: Linting 
 As software grows in scale and complexity, the quality of the code itself becomes more and more important. Think about organizing your closet or cleaning a shared space like a kitchen or bathroom with roommates or family members. At some point, you need to agree on how you are going to do it, otherwise people get frustrated. There are many standards out there, and in practice, every language has its own best practices, and different organizations - or different teams within organizations - will do things differently. Thankfully, Python has a standard called PEP8, which we will do our best to adhere too. Read more about the standard, what is in it, and linting in general [here](https://realpython.com/python-pep8/), for instance.
 
 We will use a tool called `flake8`to lint our code. It should already be installed via your `requirements.txt` file. 
@@ -103,7 +114,6 @@ If you want to see more under the hood, add the `--verbose` flag. This will show
 
 By the way, the flag `--exclude` tells flake8 to ignore some directories. The `venv` directory contains the Python programming language itself, so linting that is basically saying "Did the authors of the Python language itself adhere to best-practices in writing the Code?". While perhaps quite interesting, it is not really relevant right now. And may take a long time. If you notice the tool slowing down over time, you may also want to exclude the `__pycache__` directory, which is generated by your computer when you run your software, to speed things up. 
 
-
 ### Writing Better Code, the first time around
 We don't want to wait for alarm to go off and tell us we are doing something wrong, we want the alarm to not go off in the first place, right? Now is the time to set up VSCode to help you write better (Python) Code. 
 
@@ -113,7 +123,38 @@ Let's start with installing & enabling the Python extension. You may have it alr
 
 If you see something like this, it is installed already! you are good to go. Click on the settings cog to customize it. 
 
-Linting can also be enabled directly in the CODE editor. You will see yellow underlines for warnings and red underlines for errors. This gives you quick feedback as a developer, correcting errors quickly. [Enable and learn more about Linting in VSCode here](https://code.visualstudio.com/docs/python/linting)
+Linting can also be enabled directly in the CODE editor. You will see yellow underlines for warnings and red underlines for errors. This gives you quick feedback as a developer, correcting errors quickly. [Enable and learn more about Linting in VSCode here](https://code.visualstudio.com/docs/python/linting). 
+
+When we deploy our websites to the internet in a few minutes, linting will run automatically on the cloud - so we want to make sure we have done it first on our own computers, too, to ensure that everything runs smoothly!
+
+### Code Quality: Testing 
+Testing your code is essential in being confident that it will work. When you test code, you are asking _Does this thing work the way I want it to work?_. Like anything else, you want to make sure it works before you sleep comfortably. Software, however, is quite complex, so just looking at it quickly doesn't always mean it will always work. Think of a piece of software like a train or a car: there are thousands or millions of components working together to make it move forward. If a piece - maybe part of the engine, or a wheel, or the brakes - aren't working properly, you want to find that out as early as possible to fix it. You don't want to be left scratching your head thinking _This thing isn't moving forward and I have no idea why!_ The principle here is getting more feedback, quickly. In the world of software, the equivalent would be deploying a website and it going blank. Or worse yet: getting upset users loosing faith in your product because it doesn't always work well. Imagine that happening with a payment system on a website... 
+
+To test your `sample_website`, go into it's subdirectory (e.g. `cd sample_website`) and then run `pytest`, also installed already through your requirements file: 
+
+ `pytest --doctest--modules`
+
+ Running this command, you should see something like this: 
+
+ ![Unit tests failing locally](./documentation/pytest_failing_locally.png?raw=true)
+
+Wait! Red and Fail and Error is bad, right? Yes, you are correct. Have a look to see what is going on there. The test is checking for an HTML header that says Hello, _Flask_! while the code we have written says Hello, _Adam_!. You can find the test in the subdirectory `sample_website/tests/test_sample_website.py`. There it is, crystal clear: the test is expecting the function `hello_world()` to return a piece of HTML with an `h1` header and some specific text, and we went and edited that text. 
+
+There are a few ways to fix this, and you should ask yourself what you want to do. We are now getting into the fine art of writing tests: they need to be helpful and catch errors, without being too fragile. Before changing code, you should ask yourself what the goal is. Do you want to: 
+1. Always greet users with "Hello, Flask!" like in the original example? 
+1.  Always greet users with the new message you wrote, in this case, "Hello, Adam!"?
+1. Write something more flexible, for instance, a piece of code which checks that there is an h1 HTML tag returned that starts with "Hello,", and what comes after doesn't matter, as long as it has more than 2 characters? 
+
+To learn a bit more about testing, start with option 2: change the test so that it matches the new html you have written. In more complex code, a flexible solution like described on option 3 could be better - but it is also not without difficulties to get it right. 
+
+Once you have updated the test itself, you should see something like this: 
+
+![The updated website code (top), updated test (middle) and terminal successfully running tests (bottom)](./documentation/pytest_passing_locally.png?raw=true)
+
+Now that we are able to update our code, lint it, test it, it is time to push (upload) that code to GitHub
+
+### Push (upload) Your Changes to GitHub
+
 
 
 ## get CD running on GCP/GAE 
