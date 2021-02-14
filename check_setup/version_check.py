@@ -20,4 +20,4 @@ if sys.version_info < (3, 8):
     print(message)
     sys.exit(1)
 
-print("\nYou are using a comptabile verison of Python, good job!\n")
+print("\nYou are using a comptabile version of Python, good job!\n")
