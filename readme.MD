@@ -31,13 +31,15 @@ On your own computer:
 Now you should have your own fork (copy) of the foundations repository (folder) cloned (downloaded) onto your own computer.
 
 ### Create a fresh, new, virtual environment
-@TODO add instructions from previous years.
+
+
+`python3.8 -m venv $(which python3.8)`
 
 `source venv/bin/activate`
 
 ### Before you continue: check your version of python
 
-Make sure that you are using a version of Python which is relatively new, at least version 3.8. You can check this by using the command `python --version`at the command line. You can also a very fancy script by typing `python check_setup/version_check.py`.
+Make sure that you are using a version of Python which is relatively new, at least version 3.8. You can check this by using the command `python --version` at the command line. You can also a very fancy script by typing `python check_setup/version_check.py`.
 
 You should see something like this:
 
