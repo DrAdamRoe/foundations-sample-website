@@ -1,7 +1,8 @@
 venv/*
 .vscode/*
-__pycache__/*
-.pytest_cache/*
-junit/*
+__pycache__/
+.pytest_cache/
+junit/
 *.pyc
 foundations-2021-f1c17c8fba32.json
+.DS_Store
