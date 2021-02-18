@@ -30,12 +30,6 @@ On your own computer:
 
 Now you should have your own fork (copy) of the foundations repository (folder) cloned (downloaded) onto your own computer.
 
-### Create a fresh, new, virtual environment
-
-
-`python3.8 -m venv $(which python3.8)`
-
-`source venv/bin/activate`
 
 ### Before you continue: check your version of python
 
@@ -48,6 +42,38 @@ You should see something like this:
 If you see a longer message (`### oh no! ###`), you are using a version of Python which is too old. You will need to use Python 3.8 or newer. Like with all other software, you have to update the language itself from time to time.
 
 Keep in mind that many computers have multiple versions of Python installed on them. It might be that you need to type `python`, `Python`, `python3`,`python3.8`, or something else, to get a version that you have already installed. Or you may need install it.
+
+### Setup your local working virtual environment and install libraries
+Change directory (`cd`) into the repository that you just cloned from GitHub. It will look something like this: 
+
+![Change Working Directory](./documentation/cd-workingdirectory.png?raw=true)
+
+You are now in the top level working directory of the Foundations repository. In order to use this, create a new virtual environment: 
+
+ `python3 -m venv venv`
+
+This will make a copy of the Python application - the programming language itself - in the directory you are working in. This allows you create something of a sandbox: the ability to run your code separately from anything else happening on your computer. As we write our own code and install code other people have written which is not a part of python itself, called libraries, this becomes more and more important to keep things running smoothly. 
+
+After creating your new virtual environment (making a local copy of Python), you need to tell your terminal to use that new version of Python, instead of the one on your whole computer. To do this, we use the activate script: 
+
+`source venv/bin/activate`
+
+Depending on how your terminal is configured, you may see something like `(venv)` added to the prompt (the prompt is the part to the left of your cursor. It may show your directory or username, for instance). 
+
+In order to check which version of Python your current terminal is configured to use, the command `which` comes in handy. It shows the path (location) of an executable (application) which is currently being used. Before activating the virtual environment, it will point to something which is system or user-wide. After activation, it will point to a path which contains your new working directory, specific to this project: 
+
+![Change Working Directory](./documentation/venv-activate-which.png?raw=true)
+
+Now we have our very own version of Python for this project which we can play around with. The Python language can do a lot, but not everything. It is common practice to develop a "library", which is additional code that can be installed to do more things with the language. You can think of it like a plugin for an application. Python is open-source, and there are many open-source libraries which we can install additionally. We will install a set of tools which are very helpful for web development, since that is what class focuses on (you can imagine that if the goal were to develop a desktop video game instead of a website, we would need other pieces of code, or libraries). 
+
+To install the libraries we need, we will use the command `pip`. Pip is a tool to help us manage (install, check versions, etc..) the external python code we are installing. We could use the command pip and give it a specific package name, but that would be a lot of typing, hard to reproduce, and easy to make mistakes. We will use a file called `requirements.txt`, which lists the packages and their specific versions that we need. Have a look at that file now, sitting in the repository. This is a big step towards having a reproducible environment - which is a fancy way of saying that you have confidence that your software will continue to run. Because we are using the same versions of the same libraries on all students' computers and on the servers we will rent from Google Cloud later, we can be relatively confident that it works as expected. It happens all the time that someone updates a library that they maintain (adding a feature, for instance), which inadvertently breaks compatibility with another library that someone else maintains. We want to prevent that from happening, so we can use specific versions of third-party code, just like we will use specific versions of our own code using version control (git). To do install the third-party libraries, use the command
+
+`pip install -r requirements`
+
+You should see a lot of output on the screen, and somewhere towards the bottom a message that says you have successfully installed, something like this: 
+
+![Change Working Directory](./documentation/successful-install.png?raw=true)
+
 
 ### Run the "Hello, World!" website on your own computer
 
@@ -74,7 +100,7 @@ Building on the previous example, we will use a framework for building websites 
 
 Running a website using Flask using the same basic command, `uwsgi`, but requires a few more arguments:
 
-> uwsgi --http-socket 127.0.0.1:8080 --wsgi-file sample_website/website.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:8181 -H venv/
+`uwsgi --http-socket 127.0.0.1:8080 --wsgi-file sample_website/website.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:8181 -H venv/`
 
 You should now be able to go http://localhost:8080 in your browser and see the Hello, Flask! Website
 
