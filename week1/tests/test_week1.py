@@ -1,5 +1,24 @@
-from week1.sample_website import hello_world
+from week1.website import app
 
 
-def test_week1():
-    assert hello_world() == '<h1>Hello, Week 1!</h1>'
+# our very first functional test
+# instead of checking if a function() does it's job alone, this will check
+# the entire response, including the http status code.
+def test_index():
+    # create a version of our website that we can use for testing
+    with app.test_client() as test_client:
+        # mimic a browser: 'GET /', as if you visit the site
+        response = test_client.get('/')
+
+        # check that the HTTP response is a success
+        assert response.status_code == 200
+
+        # Store the contents of the html response in a local variable.
+        # This should be a string with the same content as the file index.html
+        html_content = response.data.decode()
+
+        assert "<html>" in html_content
+        # check that there is a header (ok, at least that there is an h1 tag)
+        assert "<h1>" in html_content
+        # check that there is a at least two paragraph tags
+        assert html_content.count("<p>") >= 2
