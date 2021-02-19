@@ -7,10 +7,25 @@
     <title> {{ page_title }}</title>
   	<meta charset="utf-8"/>
     <!-- include the css from the file static/style.css -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
-    <h1> All about CODE </h1> 
+
+  <!-- this headline will appear on all pages. -->
+  <header>
+    <div class="banner">
+      <h1> All about CODE </h1> 
+      <h3> A really great place. </h3>
+    </div>
+  </header>
+
+  <!-- This is the part which will be different on each page. 
+       see first-page.html for an example of using it -->
+  <main>
     {% block content%}
     {% endblock %}
+  </main>
+  <footer>
+    <h3> Made with love </h3>
+  </footer>
   </body>
