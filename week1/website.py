@@ -17,6 +17,8 @@ def first_page():
 def second_page():
     return render_template('second-page.html', page_title="Second Template")
 
+# add additonal pages here using a similar format as above
+
 
 if __name__ == "__main__":
     app.run(host="localhost", port=8080, debug=True)
