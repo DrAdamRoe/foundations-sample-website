@@ -214,31 +214,33 @@ Once you have done this, you have successfully edited files on your own computer
 based roughly on https://github.com/google-github-actions/deploy-appengine
 
 #### On GCP
-
+Please follow the step-by-step instruction and either click on the direct link or read the documentation: 
 1. Get cloud credits [LINK]
-1. create project https://cloud.google.com/resource-manager/docs/creating-managing-projects
-1. create app engine application https://console.cloud.google.com/appengine/create (europe-west-3 is FRA)
-1. create service account https://cloud.google.com/iam/docs/creating-managing-service-accounts
 
+2. Create project: [New Project](https://console.cloud.google.com/projectcreate?_ga=2.6229745.37020032.1613319156-1888356593.1611488751&_gac=1.23549640.1613464586.Cj0KCQiA962BBhCzARIsAIpWEL0rPXXp5I5EtcMQZ0YJ9dVFKTyurFOCQzCXSrrBfpK8PWPI7Rpn1hAaAj16EALw_wcB)
+/ [Documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+
+3. Create App Engine (europe-west-3 is FRANKFURT): [App Engine Application with Python](https://console.cloud.google.com/projectselector/appengine/create?lang=nodejs&st=true&_ga=2.196479854.37020032.1613319156-1888356593.1611488751&_gac=1.81107429.1613464586.Cj0KCQiA962BBhCzARIsAIpWEL0rPXXp5I5EtcMQZ0YJ9dVFKTyurFOCQzCXSrrBfpK8PWPI7Rpn1hAaAj16EALw_wcB) / [Documentation](https://cloud.google.com/appengine/docs/standard/python3/quickstart)
+![App Engine](documentation/app_engine.png)
+
+4. Service Account:
+   * Create service account: [Service Account](https://console.cloud.google.com/iam-admin/serviceaccounts?_ga=2.28706558.37020032.1613319156-1888356593.1611488751&_gac=1.47722581.1613464586.Cj0KCQiA962BBhCzARIsAIpWEL0rPXXp5I5EtcMQZ0YJ9dVFKTyurFOCQzCXSrrBfpK8PWPI7Rpn1hAaAj16EALw_wcB) / [Documentation](https://cloud.google.com/iam/docs/creating-managing-service-accounts)
+![Create Service Account](documentation/service_account.png)
+    * Add the following "Roles" to your newly created service account:
 ![Permissions](./documentation/service-account-permissions.png?raw=true)
 
-1. enable app engine api https://console.developers.google.com/apis/library/appengine.googleapis.com
+1. Enable [App Engine API](https://console.developers.google.com/apis/library/appengine.googleapis.com)
 
-1. enable cloud buld api
-https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com
+2. Enable [Cloud Build API](https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com)
 
-1. allow cloud build to deploy to app engine
-https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-appengine#grant-permissions
+3. Enable your "App Engine Admin" role and "Service Account user" role in [Cloud Build Setting](https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-appengine#grant-permissions)
+![Enable GCP Services](documentation/enable_gcp_services.png)
 
-
-1. Give service account permission to act as project accountt (???) --> https://github.com/DrAdamRoe/foundations-sample-website-/runs/1558999799?check_suite_focus=true
-
-1. get service account private key
-https://cloud.google.com/iam/docs/creating-managing-service-account-keys
-
+1. Create a service account key (JSON) by clicking on the 3 dots on the right side of the table for the account "@appspot.gserviceaccount.com": [Service Account Key](https://console.cloud.google.com/iam-admin/serviceaccounts?_ga=2.36637410.37020032.1613319156-1888356593.1611488751&_gac=1.86477546.1613464586.Cj0KCQiA962BBhCzARIsAIpWEL0rPXXp5I5EtcMQZ0YJ9dVFKTyurFOCQzCXSrrBfpK8PWPI7Rpn1hAaAj16EALw_wcB)
+![Service Account Key](documentation/service_account_key.png)
 --> you should now have a .JSON file on your own computer
 
-
 On GitHub:
-1. Add secret https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
+1. Add "Repository Secret": https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
+![Repository Secret](documentation/github_repo_secret.png)
 
