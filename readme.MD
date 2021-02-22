@@ -219,7 +219,9 @@ When we build a website, we usually want it to be on the internet for people to 
 
 This is already configured in the file `.github/workflows/main.yml`. I encourage you to have a look at it and try to understand what it is doing - some of these commands will look familiar, some will not. 
 
-The full, step-by-step instructions for using GitHub Actions to deploy to google cloud can be found in the PDF located at `documentation/DeployToGCPfromGitHub.pdf`, or the [Miro Board from class](https://miro.com/app/board/o9J_lTxsze4=/). Note that step 7 is an optional, additional way to deploy. Once you have finished step 6, pushing to GitHub should automatically deploy to Google Cloud. Be sure to get credits for GCP first, linked in the week's assignment. 
+The full, step-by-step instructions for using GitHub Actions to deploy to google cloud can be found in the PDF located at `documentation/DeployToGCPfromGitHub.pdf`, or the [Miro Board from class](https://miro.com/app/board/o9J_lTxsze4=/). Note that step 7 is an optional, additional way to deploy. Once you have finished step 6, pushing to GitHub should automatically deploy to Google Cloud Platform (GCP). Be sure to get credits for GCP first, linked in the week's assignment. 
+
+There are two additional files in your repository worth looking into right now: `main.py` and `app.yaml`, both used by GCP to configure your software - in other words, to know what to do. You will have to work with the file `main.py`: this imports one of the many websites (applications) from the repository. It allows us to have multiple websites in this repository, and then select the one we will run. It only needs one line of code, but that line is important! The file `app.yaml` specifies some settings for Google App Engine itself, for example, the version of Python and the size of the computer we want to use (F2). You shouldn't need to touch this file anytime soon. 
 
 Once you are done, you should be able to edit code on your computer, then `git push` to GitHub, which will in turn test, lint, and deploy your code to Google Cloud, running it live on the internet! 
 
