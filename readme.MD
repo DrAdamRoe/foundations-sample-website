@@ -211,34 +211,32 @@ Once you have done this, you have successfully edited files on your own computer
 
 ## Deploying Your Website
 
-based roughly on https://github.com/google-github-actions/deploy-appengine
+When we build a website, we usually want it to be on the internet for people to see. We will automatically deploy to Google Cloud's App Engine using GitHub Actions. Once this is fully configured, simply pushing to GitHub will a: 
 
-#### On GCP
+- lint your code
+- test your code 
+- deploy your code 
 
-1. Get cloud credits [LINK]
-1. create project https://cloud.google.com/resource-manager/docs/creating-managing-projects
-1. create app engine application https://console.cloud.google.com/appengine/create (europe-west-3 is FRA)
-1. create service account https://cloud.google.com/iam/docs/creating-managing-service-accounts
+This is already configured in the file `.github/workflows/main.yml`. I encourage you to have a look at it and try to understand what it is doing - some of these commands will look familiar, some will not. 
 
-![Permissions](./documentation/service-account-permissions.png?raw=true)
+The full, step-by-step instructions for using GitHub Actions to deploy to google cloud can be found in the PDF located at `documentation/DeployToGCPfromGitHub.pdf`, or the [Miro Board from class](https://miro.com/app/board/o9J_lTxsze4=/). Note that step 7 is an optional, additional way to deploy. Once you have finished step 6, pushing to GitHub should automatically deploy to Google Cloud. Be sure to get credits for GCP first, linked in the week's assignment. 
 
-1. enable app engine api https://console.developers.google.com/apis/library/appengine.googleapis.com
-
-1. enable cloud buld api
-https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com
-
-1. allow cloud build to deploy to app engine
-https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-appengine#grant-permissions
+Once you are done, you should be able to edit code on your computer, then `git push` to GitHub, which will in turn test, lint, and deploy your code to Google Cloud, running it live on the internet! 
 
 
-1. Give service account permission to act as project accountt (???) --> https://github.com/DrAdamRoe/foundations-sample-website-/runs/1558999799?check_suite_focus=true
-
-1. get service account private key
-https://cloud.google.com/iam/docs/creating-managing-service-account-keys
-
---> you should now have a .JSON file on your own computer
 
 
-On GitHub:
-1. Add secret https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
+These instructions are based loosely on the [official workflow](https://github.com/google-github-actions/deploy-appengine), adopted for class. The following links provide more information about specific steps along the way, which may help if you get stuck working with google cloud platform (GCP):
+- [Create "Project" on GCP](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+- [Create App Engine application](https://console.cloud.google.com/appengine/create) in europe-west-3, in Frankfurt.
+- [Create service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts)
+- The expected permissions should be: ![Permissions](./documentation/service-account-permissions.png?raw=true)
+- [Enable App Engine api](https://console.developers.google.com/apis/library/appengine.googleapis.com)
+- [Enable Could Build API](
+https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com)
+- [Allow Cloud Build to deploy to App Engine](
+https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-appengine#grant-permissions)
+- Give service account permission to act as project account 
+- [Get service account private key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) --> you should now have a .JSON file on your own computer. This is a password, do not share it! 
+- [On GitHub, add that .JSON password, allowing GitHub to deploy to GCP](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
 
