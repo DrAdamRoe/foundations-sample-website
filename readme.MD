@@ -225,8 +225,12 @@ There are two additional files in your repository worth looking into right now: 
 
 Once you are done, you should be able to edit code on your computer, then `git push` to GitHub, which will in turn test, lint, and deploy your code to Google Cloud, running it live on the internet! 
 
+![The Sample Website, Live!](./documentation/FlaskLiveGCP.png?raw=true)
+Note the URL of this page: this is live on the internet, not running locally on your own computer!
 
+That's it, you're done setting it up! Continue with this week's assignment :)
 
+#### More Details on GCP
 
 These instructions are based loosely on the [official workflow](https://github.com/google-github-actions/deploy-appengine), adopted for class. The following links provide more information about specific steps along the way, which may help if you get stuck working with google cloud platform (GCP):
 - [Create "Project" on GCP](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
