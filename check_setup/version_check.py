@@ -1,10 +1,10 @@
 import sys
 
 if sys.version_info < (3, 8):
-    message = """ 
+    message = """
     ########### oh no! ##########
-    You need Python 3.8 or higher. You are using version %i.%i 
-    """ % (sys.version_info.major,sys.version_info.minor)
+    You need Python 3.8 or higher. You are using version %i.%i
+    """ % (sys.version_info.major, sys.version_info.minor)
     print(message)
     sys.exit(1)
 
