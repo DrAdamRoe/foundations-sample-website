@@ -68,7 +68,7 @@ Now we have our very own version of Python for this project which we can play ar
 
 To install the libraries we need, we will use the command `pip`. Pip is a tool to help us manage (install, check versions, etc..) the external python code we are installing. We could use the command pip and give it a specific package name, but that would be a lot of typing, hard to reproduce, and easy to make mistakes. We will use a file called `requirements.txt`, which lists the packages and their specific versions that we need. Have a look at that file now, sitting in the repository. This is a big step towards having a reproducible environment - which is a fancy way of saying that you have confidence that your software will continue to run. Because we are using the same versions of the same libraries on all students' computers and on the servers we will rent from Google Cloud later, we can be relatively confident that it works as expected. It happens all the time that someone updates a library that they maintain (adding a feature, for instance), which inadvertently breaks compatibility with another library that someone else maintains. We want to prevent that from happening, so we can use specific versions of third-party code, just like we will use specific versions of our own code using version control (git). To do install the third-party libraries, use the command
 
-`pip install -r requirements`
+`pip install -r requirements.txt`
 
 You should see a lot of output on the screen, and somewhere towards the bottom a message that says you have successfully installed, something like this: 
 
