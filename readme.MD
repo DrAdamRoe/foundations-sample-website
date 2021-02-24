@@ -68,7 +68,7 @@ Now we have our very own version of Python for this project which we can play ar
 
 To install the libraries we need, we will use the command `pip`. Pip is a tool to help us manage (install, check versions, etc..) the external python code we are installing. We could use the command pip and give it a specific package name, but that would be a lot of typing, hard to reproduce, and easy to make mistakes. We will use a file called `requirements.txt`, which lists the packages and their specific versions that we need. Have a look at that file now, sitting in the repository. This is a big step towards having a reproducible environment - which is a fancy way of saying that you have confidence that your software will continue to run. Because we are using the same versions of the same libraries on all students' computers and on the servers we will rent from Google Cloud later, we can be relatively confident that it works as expected. It happens all the time that someone updates a library that they maintain (adding a feature, for instance), which inadvertently breaks compatibility with another library that someone else maintains. We want to prevent that from happening, so we can use specific versions of third-party code, just like we will use specific versions of our own code using version control (git). To do install the third-party libraries, use the command
 
-`pip install -r requirements`
+`pip install -r requirements.txt`
 
 You should see a lot of output on the screen, and somewhere towards the bottom a message that says you have successfully installed, something like this: 
 
@@ -211,36 +211,26 @@ Once you have done this, you have successfully edited files on your own computer
 
 ## Deploying Your Website
 
-based roughly on https://github.com/google-github-actions/deploy-appengine
-
-#### On GCP
-Please follow the step-by-step instruction and either click on the direct link or read the documentation: 
-1. Get cloud credits [LINK]
-
-2. Create project: [New Project](https://console.cloud.google.com/projectcreate?_ga=2.6229745.37020032.1613319156-1888356593.1611488751&_gac=1.23549640.1613464586.Cj0KCQiA962BBhCzARIsAIpWEL0rPXXp5I5EtcMQZ0YJ9dVFKTyurFOCQzCXSrrBfpK8PWPI7Rpn1hAaAj16EALw_wcB)
-/ [Documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-
-3. Create App Engine (europe-west-3 is FRANKFURT): [App Engine Application with Python](https://console.cloud.google.com/projectselector/appengine/create?lang=nodejs&st=true&_ga=2.196479854.37020032.1613319156-1888356593.1611488751&_gac=1.81107429.1613464586.Cj0KCQiA962BBhCzARIsAIpWEL0rPXXp5I5EtcMQZ0YJ9dVFKTyurFOCQzCXSrrBfpK8PWPI7Rpn1hAaAj16EALw_wcB) / [Documentation](https://cloud.google.com/appengine/docs/standard/python3/quickstart)
-![App Engine](documentation/app_engine.png)
-
-4. Service Account:
-   * Create service account: [Service Account](https://console.cloud.google.com/iam-admin/serviceaccounts?_ga=2.28706558.37020032.1613319156-1888356593.1611488751&_gac=1.47722581.1613464586.Cj0KCQiA962BBhCzARIsAIpWEL0rPXXp5I5EtcMQZ0YJ9dVFKTyurFOCQzCXSrrBfpK8PWPI7Rpn1hAaAj16EALw_wcB) / [Documentation](https://cloud.google.com/iam/docs/creating-managing-service-accounts)
-![Create Service Account](documentation/service_account.png)
-    * Add the following "Roles" to your newly created service account:
-![Permissions](./documentation/service-account-permissions.png?raw=true)
-
-1. Enable [App Engine API](https://console.developers.google.com/apis/library/appengine.googleapis.com)
-
-2. Enable [Cloud Build API](https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com)
-
-3. Enable your "App Engine Admin" role and "Service Account user" role in [Cloud Build Setting](https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-appengine#grant-permissions)
-![Enable GCP Services](documentation/enable_gcp_services.png)
-
-1. Create a service account key (JSON) by clicking on the 3 dots on the right side of the table for the account "@appspot.gserviceaccount.com": [Service Account Key](https://console.cloud.google.com/iam-admin/serviceaccounts?_ga=2.36637410.37020032.1613319156-1888356593.1611488751&_gac=1.86477546.1613464586.Cj0KCQiA962BBhCzARIsAIpWEL0rPXXp5I5EtcMQZ0YJ9dVFKTyurFOCQzCXSrrBfpK8PWPI7Rpn1hAaAj16EALw_wcB)
-![Service Account Key](documentation/service_account_key.png)
---> you should now have a .JSON file on your own computer
+When we build a website, we usually want it to be on the internet for people to see. We will automatically deploy to Google Cloud's App Engine using GitHub Actions. Once this is fully configured, simply pushing to GitHub will a: 
 
 On GitHub:
 1. Add "Repository Secret": https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
 ![Repository Secret](documentation/github_repo_secret.png)
+=======
+- lint your code
+- test your code 
+- deploy your code 
+
+This is already configured in the file `.github/workflows/main.yml`. I encourage you to have a look at it and try to understand what it is doing - some of these commands will look familiar, some will not. 
+
+The full, step-by-step instructions for using GitHub Actions to deploy to google cloud can be found in the PDF located at `documentation/DeployToGCPfromGitHub.pdf`, or the [Miro Board from class](https://miro.com/app/board/o9J_lTxsze4=/). Note that step 7 is an optional, additional way to deploy. Once you have finished step 6, pushing to GitHub should automatically deploy to Google Cloud Platform (GCP). Be sure to get credits for GCP first, linked in the week's assignment. 
+
+There are two additional files in your repository worth looking into right now: `main.py` and `app.yaml`, both used by GCP to configure your software - in other words, to know what to do. You will have to work with the file `main.py`: this imports one of the many websites (applications) from the repository. It allows us to have multiple websites in this repository, and then select the one we will run. It only needs one line of code, but that line is important! The file `app.yaml` specifies some settings for Google App Engine itself, for example, the version of Python and the size of the computer we want to use (F2). You shouldn't need to touch this file anytime soon. 
+
+Once you are done, you should be able to edit code on your computer, then `git push` to GitHub, which will in turn test, lint, and deploy your code to Google Cloud, running it live on the internet! 
+
+![The Sample Website, Live!](./documentation/FlaskLiveGCP.png?raw=true)
+Note the URL of this page: this is live on the internet, not running locally on your own computer!
+
+That's it, you're done setting it up! Continue with this week's assignment :)
 
