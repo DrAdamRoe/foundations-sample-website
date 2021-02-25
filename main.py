@@ -1,1 +1,1 @@
-from sample_website.website import app  # noqa: F401
+from week1.website import app  # noqa: F401
