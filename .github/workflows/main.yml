@@ -51,3 +51,4 @@ jobs:
       uses: google-github-actions/deploy-appengine@main
       with:
         credentials: ${{ secrets.GAE_SA_KEY }}
+      run: gcloud app versions delete `gcloud app versions list --format="value(id)[terminator=' ']" --filter="traffic_split=0"`
