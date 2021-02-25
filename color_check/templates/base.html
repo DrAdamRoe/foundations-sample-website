@@ -1,0 +1,27 @@
+<!-- This html template will start off all of your other html files/pages -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- the page title will be a varible passed to the render_template() function for each page separately-->
+    <title> {{ page_title }}</title>
+  	<meta charset="utf-8"/>
+    <!-- include the css from the file static/style.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+
+  <!-- this headline will appear on all pages. -->
+  <header>
+    <div class="banner">
+      <h1> Color Check  </h1> 
+    </div>
+  </header>
+  <main>
+    {% block content%}
+    {% endblock %}
+  </main>
+  <footer>
+    <h3> By Your Name Here </h3>
+  </footer>
+  </body>
