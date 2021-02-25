@@ -53,5 +53,3 @@ jobs:
         credentials: ${{ secrets.GAE_SA_KEY }}
     - name: Cleanup Old Versions on Google App Engine 
       run: gcloud app versions delete `gcloud app versions list --format="value(id)[terminator=' ']" --filter="traffic_split=0"`
-      with:
-        credentials: ${{ secrets.GAE_SA_KEY }}
