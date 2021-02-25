@@ -5,7 +5,7 @@ This repository provides a starting point for students participating in the Foun
 1. [Get Started: Run A Website on Your Own Computer](#get-started)
 1. [Hello, Flask!: Edit a Website Running Flask and Push it to GitHub](#hello-flask!)
 1. [Deploying Your Website, automatically. ](#deploying-your-website)
-
+1. [Troubleshooting common issues](#get-started)
 ## Get Started
 This section will help you make the code yours and get it onto your computer, and check that you are ready to go. By the end of this section, you will be running the "Hello, World!" website on your own comptuer.
 
@@ -234,3 +234,7 @@ Note the URL of this page: this is live on the internet, not running locally on 
 
 That's it, you're done setting it up! Continue with this week's assignment :)
 
+## Troubleshooting
+
+### Problems with uWSGI 
+A number of issues came up in Spring '2021, both with M1 Macs and Windows. As an alternative to using uwsgi, you can test locally using Flask's built-in development server, using the command `flask run`. Note that you will have to set environment variables for this to work. See the documentation and [tutorials](https://flask.palletsprojects.com/en/1.1.x/quickstart/) for how to set this up. 
