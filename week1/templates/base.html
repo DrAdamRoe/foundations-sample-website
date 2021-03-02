@@ -2,20 +2,24 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- the page title will be a varible passed to the render_template() function for each page separately-->
-    <title> {{ page_title }}</title>
-  	<meta charset="utf-8"/>
-    <!-- include the css from the file static/style.css -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body>
+
+<head>
+  <!-- the page title will be a varible passed to the render_template() function for each page separately-->
+  <title> {{ page_title }}</title>
+  <meta charset="utf-8" />
+  <!-- include the css from the file static/style.css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
 
   <!-- this headline will appear on all pages. -->
   <header>
     <table>
       <tr>
-        <h1> CODE University </h1> 
+        <h1> CODE University </h1>
       </tr>
       <tr>
         <ul>
@@ -36,4 +40,4 @@
   <footer>
     <h3> Made with love </h3>
   </footer>
-  </body>
+</body>

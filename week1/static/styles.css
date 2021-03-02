@@ -1,6 +1,20 @@
+html {
+    font-family:  'Lato', sans-serif;
+}
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 2rem;
+}
+
+p::first-letter {
+    size: 30pc;
+    color: red;
+}
+
+h3 {
+    content: "-";
+    color: red;
 }
 
 .banner{
