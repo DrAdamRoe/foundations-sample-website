@@ -5,7 +5,7 @@ This repository provides a starting point for students participating in the Foun
 1. [Get Started: Run A Website on Your Own Computer](#get-started)
 1. [Hello, Flask!: Edit a Website Running Flask and Push it to GitHub](#hello-flask!)
 1. [Deploying Your Website, automatically. ](#deploying-your-website)
-
+1. [Troubleshooting common issues](#get-started)
 ## Get Started
 This section will help you make the code yours and get it onto your computer, and check that you are ready to go. By the end of this section, you will be running the "Hello, World!" website on your own comptuer.
 
@@ -213,6 +213,10 @@ Once you have done this, you have successfully edited files on your own computer
 
 When we build a website, we usually want it to be on the internet for people to see. We will automatically deploy to Google Cloud's App Engine using GitHub Actions. Once this is fully configured, simply pushing to GitHub will a: 
 
+On GitHub:
+1. Add "Repository Secret": https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
+![Repository Secret](documentation/github_repo_secret.png)
+=======
 - lint your code
 - test your code 
 - deploy your code 
@@ -230,19 +234,7 @@ Note the URL of this page: this is live on the internet, not running locally on 
 
 That's it, you're done setting it up! Continue with this week's assignment :)
 
-#### More Details on GCP
+## Troubleshooting
 
-These instructions are based loosely on the [official workflow](https://github.com/google-github-actions/deploy-appengine), adopted for class. The following links provide more information about specific steps along the way, which may help if you get stuck working with google cloud platform (GCP):
-- [Create "Project" on GCP](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-- [Create App Engine application](https://console.cloud.google.com/appengine/create) in europe-west-3, in Frankfurt.
-- [Create service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts)
-- The expected permissions should be: ![Permissions](./documentation/service-account-permissions.png?raw=true)
-- [Enable App Engine api](https://console.developers.google.com/apis/library/appengine.googleapis.com)
-- [Enable Could Build API](
-https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com)
-- [Allow Cloud Build to deploy to App Engine](
-https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-appengine#grant-permissions)
-- Give service account permission to act as project account 
-- [Get service account private key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) --> you should now have a .JSON file on your own computer. This is a password, do not share it! 
-- [On GitHub, add that .JSON password, allowing GitHub to deploy to GCP](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
-
+### Problems with uWSGI 
+A number of issues came up in Spring '2021, both with M1 Macs and Windows. As an alternative to using uwsgi, you can test locally using Flask's built-in development server, using the command `flask run`. Note that you will have to set environment variables for this to work. See the documentation and [tutorials](https://flask.palletsprojects.com/en/1.1.x/quickstart/) for how to set this up. 

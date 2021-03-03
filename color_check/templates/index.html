@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p> Here's your starting point. You will want to edit this file to include instructions for your users. 
+    There should be an HTML form here which gets a string from a user, and sends that information to the backend
+    to check if the color is a valid CSS color or not. 
+    
+    
+    <!-- when the user submits this form, it will send the information submitted from the client (frontend)
+    to the server (backend). It will send that infromation to a particular URI, at "/color". 
+    Your server will then run the code which is defined in website.py at that route. -->
+
+    <form action="/color" method="post">
+        <!-- add the contents of your form here -->
+        <label for="name"> Color: </label>
+        <input type="text" name="color" id="color" required>
+    </form>
+
+    </p>
+
+{% endblock %}
