@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p> Edit this file to show the name of the color and to render a square of that color itself! 
-    </p>
+    
+    <div style="background-color: {{color_hex_code}}; width: 10rem; height: 10rem; border-radius: 20%;">
+    </div>
+
+    <p>{{message}}</p>
+
+    <a href="/"><button>Check next color!</button></a>
 
 {% endblock %}

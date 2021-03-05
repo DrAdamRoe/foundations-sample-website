@@ -1,6 +1,26 @@
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 2rem;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-style: Arial, sans-serif;
+    letter-spacing: 0.1pt;
+    font-size: 30pt;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: arial;
+    margin: 2rem;
+    line-height: 3;
 }
 
 .banner {
