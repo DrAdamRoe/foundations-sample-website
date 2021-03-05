@@ -1,10 +1,40 @@
-<!-- This is a basic html page which Flask can serve. 
-It does not use the power of Flask, but is easier to read than some of the other files. 
--->
+{% extends base.html %}
+{% block content %}
 
-<!DOCTYPE html>
-<html>
+<table>
+    <tr>
+        <h2>
+            Learn how to use digital technologies to make the world a better place.
+        </h2>
+    </tr>
+    <tr>
+        <td>
+            <img src="https://code.berlin/content/uploads/39a8a85b.svg" alt=""><br>
+            <h3>Innovative study programs</h3><br>
+            <p>CODE offers three Bachelor’s programs for young talents striving to become developers, designers and
+                digital entrepreneurs.</p>
+        </td>
+        <td>
+            <img src="https://code.berlin/content/uploads/3b7f55a5.svg" alt=""><br>
+            <h3>Creating something meaningful</h3><br>
+            <p>The core of our study programs are real-world projects, accompanied by seminars and workshops with an
+                advanced flipped-classroom concept.</p>
+        </td>
+        <td>
+            <img src="https://code.berlin/content/uploads/b9d61d50.svg" alt=""><br>
+            <h3>Challenge-based learning</h3><br>
+            <p>Assisted by a mentor, students evolve competencies, learn how to collaborate, and reach their full
+                potential.</p>
+        </td>
+        <td>
+            <img src="https://code.berlin/content/uploads/965654a1.svg" alt=""><br>
+            <h3>Positive impact on society</h3><br>
+            <p>A Science, Technology and Society Program that supports a broad horizon and a multidisciplinary approach to problem-solving.</p>
+        </td>
+    </tr>
+</table>
 
+<<<<<<< HEAD
 <!-- learn more about what belongs in head and how it is used here 
 https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML -->
 <head>
@@ -20,3 +50,6 @@ https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_hea
     <p> To see a page which starts to use Flask to <em>generate</em> dynamic code, <a href="/first-page">click here</a>.</p>
 </body>
 </html>
+=======
+{% endblock content %}
+>>>>>>> db56629e832fa2b48ccc47c42f2c74e8590ae198
