@@ -21,7 +21,7 @@ def test_index():
         response = test_client.get('/')
 
         # check that the HTTP response is a success
-        assert response.status_code == 200
+        assert response.status_code == 500
 
         # Store the contents of the html response in a local variable.
         # This should be a string with the same content as the file index.html
@@ -34,4 +34,4 @@ def test_index():
 def test_colors():
     with app.test_client() as test_client:
         response = test_client.post('/color')
-        assert response.status_code == 200
+        assert response.status_code == 500

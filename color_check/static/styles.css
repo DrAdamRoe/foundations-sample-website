@@ -9,7 +9,7 @@ header {
 }
 
 h1 {
-    font-style: Arial, sans-serif;
+    font-family: Arial, sans-serif;
     letter-spacing: 0.1pt;
     font-size: 30pt;
 }
@@ -18,7 +18,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: arial;
+    font-family: Arial;
     margin: 2rem;
     line-height: 3;
 }

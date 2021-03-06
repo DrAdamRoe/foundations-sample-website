@@ -4,8 +4,8 @@ import logging
 from color_check.controllers.get_color_code import get_color_code
 app = Flask(__name__)
 
-logging.basicConfig(filename='color_check/log.txt',
-                    filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='color_check/color_check.log',
+                    filemode='w', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 
 
 @app.route('/')
@@ -34,6 +34,7 @@ def show_color():
         str(user_submitted_string) + ".\n" + \
         "Your color code is " + str(color_hex_code)
     no_color_text = "Your color isn't available"
+    
     logging.debug(user_submitted_string)
 
     if color_hex_code == None:
