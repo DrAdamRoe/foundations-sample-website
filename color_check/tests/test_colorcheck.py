@@ -3,7 +3,7 @@ from color_check.controllers.get_color_code import get_color_code
 
 
 # test the  function we've written to check on the colors themselves
-def test_get_color_code():
+# def test_get_color_code():
     # this test should pass right now
     # assert get_color_code("blue") == "#0000ff"
     # the following test will fail at the beginning,
