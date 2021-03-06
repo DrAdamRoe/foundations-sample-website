@@ -34,4 +34,4 @@ def test_index():
 def test_colors():
     with app.test_client() as test_client:
         response = test_client.post('/color')
-        assert response.status_code == 200
+        assert response.status_code == 500
