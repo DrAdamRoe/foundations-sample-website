@@ -11,7 +11,7 @@ def test_index():
         response = test_client.get('/')
 
         # check that the HTTP response is a success
-        assert response.status_code == 500
+        assert response.status_code == 200
 
         # Store the contents of the html response in a local variable.
         # This should be a string with the same content as the file index.html
