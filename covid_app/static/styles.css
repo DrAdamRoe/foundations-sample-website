@@ -1,0 +1,15 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 2rem;
+}
+
+.banner {
+    margin-top: 2rem;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+footer {
+    margin-top: 5rem;
+    text-align: center;
+}
