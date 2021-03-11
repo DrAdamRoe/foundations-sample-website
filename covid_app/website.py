@@ -25,3 +25,9 @@ def create_meeting():
 
 if __name__ == "__main__":
     app.run(host="localhost", port=8080, debug=True)
+
+
+# next steps (Adam)
+# - Create first table in database
+# - Create connector, model, first controller
+# - add comments, make assignment clear in code 
