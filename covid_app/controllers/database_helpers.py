@@ -15,7 +15,7 @@ def connect_to_database(database_filename):
     try:
         db_connection = sqlite3.connect(database_filename)
     except sqlite3.DatabaseError:
-        print("Error connected to database file {filename}".format(
+        print("Error while connecting to database file {filename}".format(
             filename=database_filename))
 
     # create a database cursor object, neccesary to use SQL

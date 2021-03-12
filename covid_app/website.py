@@ -9,7 +9,7 @@ from covid_app.controllers.database_helpers import query_database
 app = Flask(__name__)
 
 # This is an example of how to configure a flask.
-app.config['DATABASE_FILE'] = 'data/covid_app.sqlite'
+app.config['DATABASE_FILE'] = 'covid_app/data/covid_app.sqlite'
 
 
 @app.route('/')
@@ -21,14 +21,17 @@ def index():
 def create_meeting():
     try:
         name = request.form.get('name')
-        print("met:", name, "today")
-        # turn this into an SQL command
-        sql_insert = "INSERT INTO Meetings VALUES {name}".format(name=name)
+        app.logger.info(name)
+        # turn this into an SQL command. For example:
+        # "Adam" --> "INSERT INTO Meetings (name) VALUES("Adam");"
+        sql_insert = "INSERT INTO Meetings (name) VALUES (\"{name}\");".format(
+            name=name)
+
 
         # connect to the database with the filename configured above
         # returning a 2-tuple that contains a connection and cursor object
         # --> see file database_helpers for more
-        database_tuple = connect_to_database(app.config("DATABASE_FILE"))
+        database_tuple = connect_to_database(app.config["DATABASE_FILE"])
 
         # now that we have connected, add the new meeting (insert a row)
         # --> see file database_helpers for more
@@ -36,7 +39,7 @@ def create_meeting():
 
         # now, get all of the meetings from the database, not just the new one.
         # first, define the query to get all meetings:
-        sql_query = "FROM Meetings SELECT *"
+        sql_query = "SELECT * FROM Meetings;"
 
         # query the database, by passinng the database cursor and query,
         # we expect a list of tuples corresponding to all rows in the database
