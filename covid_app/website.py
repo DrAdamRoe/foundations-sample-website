@@ -1,3 +1,6 @@
+from os import getenv
+from shutil import copyfile
+
 from flask import Flask, request
 from flask import render_template
 from covid_app.controllers.database_helpers import connect_to_database
@@ -5,11 +8,29 @@ from covid_app.controllers.database_helpers import close_conection_to_database
 from covid_app.controllers.database_helpers import change_database
 from covid_app.controllers.database_helpers import query_database
 
-
 app = Flask(__name__)
 
-# This is an example of how to configure a flask.
+# This is a terrible example of how to configure a flask.
+# this type of configuration should be done in a separate file,
+# using environment variables. The code is written this way for
+# relative ease of reading - but the code gets out of hand very
+# quickly if you follow this approach.
+
+# local file for testing purposes
 app.config['DATABASE_FILE'] = 'covid_app/data/covid_app.sqlite'
+
+# hack to run with sqlite on app engine: if the code is run on app engine,
+# this will copy the existing database to a writeable tmp directory.
+# note that it will get overwritten every time you deploy! a production-ready
+# approach is to store the file long-term on google cloud storage,
+# or, better yet, use fully managed  relational database management software
+# via Cloud SQL.
+if getenv('GAE_ENV', '').startswith('standard'):
+    app_engine_path = "/tmp/covid_app.sqlite"
+    copyfile(app.config['DATABASE_FILE'], app_engine_path)
+    app.config['DATABASE_FILE'] = app_engine_path
+else:
+    pass
 
 
 @app.route('/')
@@ -21,7 +42,7 @@ def index():
 def create_meeting():
     try:
         name = request.form.get('name')
-        app.logger.info(name)
+        # app.logger.info(name)
         # turn this into an SQL command. For example:
         # "Adam" --> "INSERT INTO Meetings (name) VALUES("Adam");"
         sql_insert = "INSERT INTO Meetings (name) VALUES (\"{name}\");".format(
