@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p> When you are done, this page should be able to give a list of everyone you have met in the last 2 weeks
+    </p>    
+    
+    <!-- when the user submits this form, it will send the information submitted from the client (frontend)
+    to the server (backend). It will send that infromation to a particular URI, at "/color". 
+    Your server will then run the code which is defined in website.py at that route. -->
+
+    <form action="/create" method="post">
+        <!-- add the contents of your form here -->
+        <label for="name"> Today I met: </label>
+        <input type="text" name="name" id="name" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p> So far, I have met...
+        {{meetings}}
+    </p>
+
+
+{% endblock %}
