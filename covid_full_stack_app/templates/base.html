@@ -1,0 +1,73 @@
+<!-- This html template will start off all of your other html files/pages -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- the page title will be a varible passed to the render_template() function for each page separately-->
+    <title> {{ page_title }}</title>
+  	<meta charset="utf-8"/>
+    <!-- include the css from the file static/style.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+    
+    <!-- our very first javascript in the app! As with CSS, there are many ways to include your javascript. 
+    Normally, javascript would be written into files with a .js ending, in the static folder, together with the css. 
+    for a small piece of javascript, it is OK to include it directly, as I've done here. 
+    -->
+    {% block scripts %}
+      <script>
+          function getMeetings(){
+          
+            // The key javascript function here is fetch(), which is designed to get data from the backend. 
+            // The code below is more readable than other examples you will find on the internet, but 
+            // does the same thing. Borrowed from https://javascript.info/fetch
+
+          fetch('/api/meetings/all')
+            .then(
+              // this is a magical feature of javascript called an "anonymous function" which is defined 
+              // on the fly, without a name. 
+              function(response) {
+                // if the response is not a 200 OK (happy), "return", i.e. stop processing the data.
+                if (response.status !== 200) {
+                  // this is the equivalent to a python print() statement, and it will print to the browser console
+                  console.log('Looks like there was a problem. Status Code: ' + response.status);
+                  return;
+                }
+                          
+                //if the response is a 200, check the data returned from the backend, in JSON format. 
+                response.json().then(function(data) {
+                  console.log(data);
+
+                for (let i= 0; i < data.length; i++){
+                  let paragraph = document.createElement('p');
+                  paragraph.textContent = data[i];
+                  document.body.appendChild(paragraph);
+                }
+                });
+              }
+            )
+            .catch(function(err) {
+              console.log('Fetch Error, booo!', err);
+            });
+        }
+    </script>
+    {% endblock %}
+
+
+  </head>
+  <body>
+
+  <!-- this headline will appear on all pages. -->
+  <header>
+    <div class="banner">
+      <h1> Covid Diary  </h1> 
+    </div>
+  </header>
+  <main>
+    {% block content%}
+    {% endblock %}
+  </main>
+  <footer>
+    <h3> By Your Name Here </h3>
+  </footer>
+  </body>
