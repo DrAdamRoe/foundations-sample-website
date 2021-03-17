@@ -148,7 +148,7 @@ def add_new_location():
     close_conection_to_database(database_tuple[0])
 
     return render_template('index.html', page_title="Covid Diary",
-                           meetings_recent=query_response_recent, meetings_general=query_response_general, contacts=query_response_contacts, locations=query_response_locations, msg=msg), 201
+                           meetings_recent=query_response_recent, meetings_general=query_response_general, contacts=query_response_contacts, locations=query_response_locations, msg=msg, msg_color=msg_color), 201
 
 @app.route('/create', methods=['POST'])
 def create_meeting():
