@@ -68,7 +68,7 @@ def index():
         # In addition to HTML, we will respond with an HTTP Status code
         # The status code 201 means "created": a row was added to the database
         return render_template('index.html', page_title="Covid Diary",
-                               meetings_recent=query_response_recent, meetings_general=query_response_general, contacts=query_response_contacts, locations=query_response_locations, msg_color=msg_color), 201
+                               meetings_recent=query_response_recent, meetings_general=query_response_general, contacts=query_response_contacts, locations=query_response_locations), 201
     except Exception:
         # something bad happended. Return an error page and a 500 error
         error_code = 500
