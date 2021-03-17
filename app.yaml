@@ -6,11 +6,8 @@ runtime: python38
 instance_class: F2
 
 handlers:
-- url: /static
+- url: covid_app/static
   static_dir: covid_app/static
-
-- url: /stylesheets
-  static_dir: stylesheets
 
 - url: /.*
   secure: always
