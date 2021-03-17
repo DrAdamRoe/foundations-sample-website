@@ -36,7 +36,7 @@ def change_database(db_connection, db_cursor, sql_command):
     try:
         db_cursor.execute(sql_command)
     except sqlite3.DatabaseError:
-        print("tried to execute the folllwing SQL, but failed:", sql_command)
+        print("change_database Fail: tried to execute the folllwing SQL, but failed:", sql_command)
 
     # commit changes - like with git.
     db_connection.commit()
@@ -51,7 +51,7 @@ def query_database(db_cursor, sql_query):
     try:
         db_cursor.execute(sql_query)
     except sqlite3.DatabaseError:
-        print("tried to execute the folllwing SQL, but failed:", sql_query)
+        print("query_database Fail: tried to execute the folllwing SQL, but failed:", sql_query)
 
     # list of tuples, where each tuple represents a row in the database
     query_response = db_cursor.fetchall()

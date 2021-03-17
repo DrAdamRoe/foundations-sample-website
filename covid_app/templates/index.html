@@ -1,23 +1,124 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p> When you are done, this page should be able to give a list of everyone you have met in the last 2 weeks
-    </p>    
-    
-    <!-- when the user submits this form, it will send the information submitted from the client (frontend)
+
+<!-- when the user submits this form, it will send the information submitted from the client (frontend)
     to the server (backend). It will send that infromation to a particular URI, at "/color". 
     Your server will then run the code which is defined in website.py at that route. -->
+<div class="submitRow">
+    <div class="submitBox">
+        <h2>Who did you meet today?</h2>
+        <form action="/create" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <label for="contacts">Contact:</label>
+                    </td>
+                    <td>
+                        <select name="name" id="contacts">
+                            {% for contact in contacts %}
+                            <option value="{{contact[0]}}">{{contact[0]}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="locations">Location:</label>
+                    </td>
+                    <td>
+                        <select name="location" id="locations">
+                            {% for location in locations %}
+                            <option value="{{location[0]}}">{{location[0]}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td><input type="Submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
 
-    <form action="/create" method="post">
-        <!-- add the contents of your form here -->
-        <label for="name"> Today I met: </label>
-        <input type="text" name="name" id="name" required>
-        <input type="submit" value="Submit">
-    </form>
 
-    <p> So far, I have met...
-        {{meetings}}
-    </p>
 
+    <div class="addBox">
+        <h2>Someone new?</h2>
+        <form action="/add_contact" method="post">
+            <!-- add the contents of your form here -->
+            <table>
+                <tr>
+                    <td>
+                        <label for="name"> New contact: </label>
+                    </td>
+                    <td>
+                        <input type="text" name="new_contact" id="name">
+                    </td>
+                    <td>
+                        <input type="submit" value="Add">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <h2>Somewhere new?</h2>
+        <form action="/add_location" method="post">
+            <!-- add the contents of your form here -->
+            <table>
+                <tr>
+                    <td>
+                        <label for="location"> New location: </label>
+                    </td>
+                    <td>
+                        <input type="text" name="new_location" id="location">
+                    </td>
+                    <td>
+                        <input type="submit" value="Add">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<h1 style="color: {{msg_color}}; display: flex; justify-content: center;">{{msg}}</h1>
+
+
+<div class="mainDataBox">
+    <div class="dataBox">
+        <h2> Last two weeks I met...</h2>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <th>Location:</th>
+                <th>Date:</th>
+            </tr>
+            {% for person in meetings_recent%}
+            <tr>
+                <td>{{person[0]}}</td>
+                <td>{{person[2]}}</td>
+                <td>{{person[1]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="dataBox">
+        <h2>So far, I have met...</h2>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <th>Location:</th>
+                <th>Date:</th>
+            </tr>
+            {% for person in meetings_general%}
+            <tr>
+                <td>{{person[0]}}</td>
+                <td>{{person[2]}}</td>
+                <td>{{person[1]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 
 {% endblock %}
