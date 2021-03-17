@@ -3,10 +3,10 @@ from shutil import copyfile
 
 from flask import Flask, request
 from flask import render_template
-from controllers.database_helpers import connect_to_database
-from controllers.database_helpers import close_conection_to_database
-from controllers.database_helpers import change_database
-from controllers.database_helpers import query_database
+from covid_app.controllers.database_helpers import connect_to_database
+from covid_app.controllers.database_helpers import close_conection_to_database
+from covid_app.controllers.database_helpers import change_database
+from covid_app.controllers.database_helpers import query_database
 
 from datetime import date, timedelta
 date = date.today()
