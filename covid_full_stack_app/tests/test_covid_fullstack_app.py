@@ -20,12 +20,14 @@ def test_index():
         assert "<html>" in html_content
 
 
-# doesn't quite work as a test with this architecture; fix for next year.
-# # check that there is a route at "/create" which accepts a POST request
-# def test_create():
-#     with app.test_client() as test_client:
+def test_get():
+    # create a version of our website that we can use for testing
+    with app.test_client() as test_client:
+        # mimic our javascript "get" function
+        response = test_client.get('/api/meetings/all')
 
-#         test_data = {'name': 'Adamliqhiohqeghwehg'}
+        # check that the HTTP response is a success
+        assert response.status_code == 200
+        
 
-#         response = test_client.post('/create', data=test_data)
-#         assert response.status_code == 201
+
