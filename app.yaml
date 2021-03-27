@@ -7,7 +7,7 @@ instance_class: F2
 
 handlers:
 - url: /static
-  static_dir: styles
+  static_dir: static
 
 - url: /.*
   secure: always
