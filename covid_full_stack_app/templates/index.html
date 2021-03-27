@@ -5,10 +5,11 @@
     </p>    
     
     <!-- when the user submits this form, it will send the information submitted from the client (frontend)
-    to the server (backend). It will send that infromation to a particular URI, at "/color". 
-    Your server will then run the code which is defined in website.py at that route. -->
-
-    <form action="/api/meetings" method="post">
+    to the server (backend). It will call the JavaScript function called createNewMeeting(), which is 
+    defined in script.js . The additional argument event.preventDefault() will override the default beahvior 
+    of the HTML form.
+    -->
+    <form id="meeting-form" onsubmit="createNewMeeting(event.preventDefault())">
         <!-- add the contents of your form here -->
         <label for="name"> Today I met: </label>
         <input type="text" name="name" id="name" required>
@@ -17,7 +18,7 @@
 
     <!-- we are now working with one of the greatest inventions of the web: the button
          as the code implies, when you click on the button, it will run the function 
-         which onclick is told to do. This function is defined in the base.html file, and is not 
+         which onclick is told to do. This function is defined in the script.ks file, and is not 
          run until the moment this magic button is clicked.
     -->
     <button onclick="getMeetings()"> Get Data </button>

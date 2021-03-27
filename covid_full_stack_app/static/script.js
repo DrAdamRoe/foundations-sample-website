@@ -33,3 +33,28 @@ function getMeetings() {
       console.log("Fetch Error, booo!", err);
     });
 }
+
+function createNewMeeting() {
+  // creates a new javascript object called form_data, of the type FormData, based on the contents
+  // of a form called meeting-form, which is the form defined in index.html.
+  const form_data = new FormData(document.getElementById("meeting-form"));
+  fetch("/api/meetings", {
+    method: "POST",
+    body: form_data,
+  })
+    .then(
+      //same basic code as above - catch errors if there are any.
+      function (response) {
+        // if the response is not a 201 OK (resource created), log it.
+        if (response.status !== 201) {
+          // this is the equivalent to a python print() statement, and it will print to the browser console
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+        }
+      }
+    )
+    .catch(function (err) {
+      console.log("Fetch Error, booo!", err);
+    });
+}
