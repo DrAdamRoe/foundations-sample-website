@@ -6,8 +6,13 @@
     <!-- the page title will be a varible passed to the render_template() function for each page separately-->
     <title> {{ page_title }}</title>
   	<meta charset="utf-8"/>
+    
     <!-- include the css from the file static/style.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+    <!-- include the image  static/virus.png as the website's favicon-->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='virus.png') }}">
+
     <!-- include the js from the file static/script.js -->
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
   </head>
