@@ -1,7 +1,7 @@
 from os import getenv
 from shutil import copyfile
 
-from flask import Flask, request
+from flask import Flask, request, Response
 from flask import render_template
 from flask import jsonify
 from covid_app.controllers.database_helpers import connect_to_database
@@ -65,7 +65,7 @@ def create_meeting():
 
         # We will respond only with an HTTP Status code, without any HTML
         # The status code 201 means "created": a row was added to the database
-        return render_template('index.html', page_title="Covid Diary")
+        return Response(status=201)
     except Exception:
         # something bad happended. Return an error page and a 500 error
         error_code = 500
