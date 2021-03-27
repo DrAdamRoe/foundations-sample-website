@@ -20,7 +20,7 @@ def test_index():
         assert "<html>" in html_content
 
 
-# doesn't quite work as a test with this architecture; fix for next year. 
+# doesn't quite work as a test with this architecture; fix for next year.
 # # check that there is a route at "/create" which accepts a POST request
 # def test_create():
 #     with app.test_client() as test_client:
