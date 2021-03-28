@@ -18,7 +18,7 @@ app = Flask(__name__)
 # quickly if you follow this approach.
 
 # local file for testing purposes
-app.config['DATABASE_FILE'] = 'data/covid_app.sqlite'
+app.config['DATABASE_FILE'] = 'covid_full_stack_app/data/covid_app.sqlite'
 
 # hack to run with sqlite on app engine: if the code is run on app engine,
 # this will copy the existing database to a writeable tmp directory.
@@ -28,7 +28,7 @@ app.config['DATABASE_FILE'] = 'data/covid_app.sqlite'
 # via Cloud SQL.
 if getenv('GAE_ENV', '').startswith('standard'):
     app_engine_path = "/tmp/covid_app.sqlite"
-    copyfile(app.config['DATABASE_FILE'], app_engine_path)
+    copyfile("data/covid_app.sqlite", app_engine_path)
     app.config['DATABASE_FILE'] = app_engine_path
 else:
     pass
