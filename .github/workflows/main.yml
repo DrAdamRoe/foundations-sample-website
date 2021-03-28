@@ -50,7 +50,7 @@ jobs:
     - name: Deploy to Google App Engine
       uses: google-github-actions/deploy-appengine@main
       with:
-        deliverables: dispatch.yaml
+        deliverables: dispatch.yaml app.yaml
         credentials: ${{ secrets.GAE_SA_KEY }}
     - name: Cleanup Old Versions on Google App Engine 
       run: gcloud app versions delete --quiet `gcloud app versions list --format="value(id)[terminator=' ']" --filter="traffic_split=0"`
