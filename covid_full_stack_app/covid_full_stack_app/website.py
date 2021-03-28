@@ -4,10 +4,10 @@ from shutil import copyfile
 from flask import Flask, request, Response
 from flask import render_template
 from flask import jsonify
-from .controllers.database_helpers import connect_to_database
-from .controllers.database_helpers import close_conection_to_database
-from .controllers.database_helpers import change_database
-from .controllers.database_helpers import query_database
+from covid_full_stack_app.controllers.database_helpers import connect_to_database  # noqa: E501
+from covid_full_stack_app.controllers.database_helpers import close_conection_to_database  # noqa: E501
+from covid_full_stack_app.controllers.database_helpers import change_database
+from covid_full_stack_app.controllers.database_helpers import query_database
 
 app = Flask(__name__)
 
@@ -28,7 +28,7 @@ app.config['DATABASE_FILE'] = 'covid_full_stack_app/data/covid_app.sqlite'
 # via Cloud SQL.
 if getenv('GAE_ENV', '').startswith('standard'):
     app_engine_path = "/tmp/covid_app.sqlite"
-    copyfile("data/covid_app.sqlite", app_engine_path)
+    copyfile(app.config['DATABASE_FILE'], app_engine_path)
     app.config['DATABASE_FILE'] = app_engine_path
 else:
     pass
