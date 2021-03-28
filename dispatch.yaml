@@ -1,5 +1,5 @@
 # adapted from https://cloud.google.com/appengine/docs/standard/python3/how-requests-are-routed#dispatch 
 
 dispatch:
-- url: "*"
+- url: /.*
   service: fullstack
