@@ -4,10 +4,10 @@ from shutil import copyfile
 from flask import Flask, request, Response
 from flask import render_template
 from flask import jsonify
-from covid_full_stack_app.controllers.database_helpers import connect_to_database  # noqa: E501
-from covid_full_stack_app.controllers.database_helpers import close_conection_to_database  # noqa: E501
-from covid_full_stack_app.controllers.database_helpers import change_database
-from covid_full_stack_app.controllers.database_helpers import query_database
+from .controllers.database_helpers import connect_to_database
+from .controllers.database_helpers import close_conection_to_database
+from .controllers.database_helpers import change_database
+from .controllers.database_helpers import query_database
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ app = Flask(__name__)
 # quickly if you follow this approach.
 
 # local file for testing purposes
-app.config['DATABASE_FILE'] = 'covid_full_stack_app/data/covid_app.sqlite'
+app.config['DATABASE_FILE'] = 'data/covid_app.sqlite'
 
 # hack to run with sqlite on app engine: if the code is run on app engine,
 # this will copy the existing database to a writeable tmp directory.
