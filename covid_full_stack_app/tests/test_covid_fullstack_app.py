@@ -28,6 +28,3 @@ def test_get():
 
         # check that the HTTP response is a success
         assert response.status_code == 200
-        
-
-
