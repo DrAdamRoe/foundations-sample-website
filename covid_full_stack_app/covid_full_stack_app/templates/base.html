@@ -37,15 +37,14 @@
                 return;
               }
 
-              //if the response is a 200, check the data returned from the backend, in JSON format.
+              // if the response is a 200, check the data returned from the backend isin JSON format.
+              // if that passes, print the data to the javascript console on the browser. 
               response.json().then(function (data) {
                 console.log(data);
 
-                for (let i = 0; i < data.length; i++) {
-                  let paragraph = document.createElement("p");
-                  paragraph.textContent = data[i];
-                  document.body.appendChild(paragraph);
-                }
+                // Your Homework: instead of printoing to the cosnole, change what the user sees. 
+
+                
               });
             }
           )
