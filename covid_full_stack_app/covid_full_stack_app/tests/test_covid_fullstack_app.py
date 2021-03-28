@@ -1,5 +1,8 @@
 from covid_full_stack_app.website import app
 
+# add the 2nd level of directory hierarchy so tests run sucessfully from the root. 
+app.config['DATABASE_FILE'] = 'covid_full_stack_app/' + app.config['DATABASE_FILE']  # noqa: E501
+
 
 # a functional test
 # instead of checking if a function() does it's job alone, this will check
